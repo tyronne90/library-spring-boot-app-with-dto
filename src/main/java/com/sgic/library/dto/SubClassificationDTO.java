@@ -1,10 +1,9 @@
-package com.sgic.library.model;
+package com.sgic.library.dto;
 
-public class SubClassificationModel {
+public class SubClassificationDTO {
 	private String subClassId;
 	private String subClassName;
-	private Long mainClassId;
-	
+	private String mainClassId;
 	public String getSubClassId() {
 		return subClassId;
 	}
@@ -17,10 +16,12 @@ public class SubClassificationModel {
 	public void setSubClassName(String subClassName) {
 		this.subClassName = subClassName;
 	}
-	public Long getMainClassId() {
+	public String getMainClassId() {
 		return mainClassId;
 	}
-	public void setMainClassId(Long mainClassId) {
+	public void setMainClassId(String mainClassId) {
 		this.mainClassId = mainClassId;
 	}
+	
+	
 }

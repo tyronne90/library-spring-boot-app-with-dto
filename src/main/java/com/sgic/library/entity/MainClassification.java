@@ -18,6 +18,15 @@ public class MainClassification implements Serializable {
 	private Long mainClassId;
 	private String mainClassName;
 	
+	public MainClassification() {
+		super();
+	}
+	
+	public MainClassification(String mainClassName) {
+		super();
+		this.mainClassName = mainClassName;
+	}
+	
 	public Long getMainClassId() {
 		return mainClassId;
 	}

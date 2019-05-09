@@ -6,6 +6,6 @@ import com.sgic.library.entity.MainClassification;
 
 public interface MainClassificationService {
 	MainClassification getMainClassificationById(Long mainClassId);
-	void saveMainClassification(MainClassification mainClass);
+	MainClassification save(MainClassification mainClass);
 	List<MainClassification> getAllMainClass();
 }

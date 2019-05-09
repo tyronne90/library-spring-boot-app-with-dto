@@ -3,7 +3,8 @@ package com.sgic.library.dto;
 public class SubClassificationDTO {
 	private String subClassId;
 	private String subClassName;
-	private String mainClassId;
+	private Long mainClassId;
+	
 	public String getSubClassId() {
 		return subClassId;
 	}
@@ -16,12 +17,12 @@ public class SubClassificationDTO {
 	public void setSubClassName(String subClassName) {
 		this.subClassName = subClassName;
 	}
-	public String getMainClassId() {
+	public Long getMainClassId() {
 		return mainClassId;
 	}
-	public void setMainClassId(String mainClassId) {
+	public void setMainClassId(Long mainClassId) {
 		this.mainClassId = mainClassId;
 	}
-	
+
 	
 }

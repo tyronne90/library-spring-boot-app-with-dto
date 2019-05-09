@@ -15,8 +15,8 @@ public class MainClassificationServiceImplement implements MainClassificationSer
 	MainClassificationRepository mainClassificationRepository;
 
 	@Override
-	public void saveMainClassification(MainClassification mainClass) {
-		mainClassificationRepository.save(mainClass); 
+	public MainClassification save(MainClassification mainClass) {
+		return mainClassificationRepository.save(mainClass);
 	}
 
 	@Override

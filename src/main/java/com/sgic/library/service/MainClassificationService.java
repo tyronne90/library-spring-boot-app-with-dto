@@ -8,4 +8,6 @@ public interface MainClassificationService {
 	MainClassification getMainClassificationById(Long mainClassId);
 	MainClassification save(MainClassification mainClass);
 	List<MainClassification> getAllMainClass();
+	MainClassification deleteMainClassificationById(Long mainClassId);
+	void updateMainClassification(MainClassification mainClass);
 }

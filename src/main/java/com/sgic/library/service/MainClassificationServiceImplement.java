@@ -28,4 +28,19 @@ public class MainClassificationServiceImplement implements MainClassificationSer
 	public MainClassification getMainClassificationById(Long mainClassId) {
 		return mainClassificationRepository.findMainClassificationByMainClassId(mainClassId);
 }
+
+	@Override
+	public MainClassification deleteMainClassificationById(Long mainClassId) {
+		mainClassificationRepository.deleteById(mainClassId);
+		return null;
+	}
+
+	@Override
+	public void updateMainClassification(MainClassification mainClass) {
+		Long mainClassId = mainClass.getMainClassId();
+		boolean isExist = mainClassificationRepository.findMainClassificationByMainClassId(mainClassId) != null;
+		if(isExist) {
+			mainClassificationRepository.save(mainClass);
+}		
+	}
 }

@@ -39,11 +39,12 @@ public class MainClassificationDtoMapper {
 		return mainClassDTO;
 	}
 
+
 //	private MainClassification DTOtoEntity(MainClassificationDTO mainClassDTO) {
 //		MainClassification mainClass = modelMapper.map(mainClassDTO, MainClassification.class);
 //		return mainClass;
 //	}
-	
+//	
 
 	public MainClassification saveMainClass(MainClassificationDTO mainClassDTO) {
 		MainClassification mainClass = modelMapper.map(mainClassDTO, MainClassification.class);
@@ -61,5 +62,14 @@ public class MainClassificationDtoMapper {
 		return returnValue;
 	}
 	 
+	public MainClassificationDTO deleteMainClassification(Long mainClassId) {
+		mainClassServiceImpl.deleteMainClassificationById(mainClassId);
+		return null;
+	}
+	
+	public void updateMainClassification(MainClassificationDTO mainClassDTO) {
+		MainClassification mainClass = modelMapper.map(mainClassDTO, MainClassification.class);
+		EntityToDTO(mainClassServiceImpl.save(mainClass));
+	}
 
 }

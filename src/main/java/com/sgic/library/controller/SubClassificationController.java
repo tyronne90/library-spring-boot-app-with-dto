@@ -15,8 +15,6 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.sgic.library.dto.SubClassificationDTO;
 import com.sgic.library.dtomapper.SubClassificationDTOMapper;
-import com.sgic.library.entity.SubClassification;
-import com.sgic.library.service.SubClassificationService;
 
 @RestController
 public class SubClassificationController {
@@ -29,7 +27,6 @@ public class SubClassificationController {
 //		subClassService.saveSubClassification(subClass);
 		
 		subClassMapper.saveSubClass(subClassDTO);
-				
 		return HttpStatus.CREATED;
 	}
 	

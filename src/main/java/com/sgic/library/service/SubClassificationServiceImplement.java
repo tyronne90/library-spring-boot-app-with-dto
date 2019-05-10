@@ -20,8 +20,8 @@ public class SubClassificationServiceImplement implements SubClassificationServi
 	}
 
 	@Override
-	public void saveSubClassification(SubClassification subClass) {
-		subClassificationRepository.save(subClass);
+	public SubClassification save(SubClassification subClass) {
+		return subClassificationRepository.save(subClass);
 	}
 
 	@Override

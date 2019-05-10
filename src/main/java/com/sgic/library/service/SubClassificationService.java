@@ -6,6 +6,6 @@ import com.sgic.library.entity.SubClassification;
 
 public interface SubClassificationService {
 	SubClassification getSubClassificationBySubClassId(String subClassId);
-	void saveSubClassification(SubClassification subClass);
+	SubClassification save(SubClassification subClass);
 	List<SubClassification> getAllSubClass();
 }

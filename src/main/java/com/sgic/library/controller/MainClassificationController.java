@@ -15,28 +15,24 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.sgic.library.dto.MainClassificationDTO;
 import com.sgic.library.dtomapper.MainClassificationDtoMapper;
-import com.sgic.library.entity.MainClassification;
-import com.sgic.library.service.MainClassificationService;
 
 @RestController
 public class MainClassificationController {
 	@Autowired
-	MainClassificationService mainClassService;
-	@Autowired
 	MainClassificationDtoMapper mainClassDTOMapper;
 
 	@PostMapping("/SaveMainClassification")
-	public HttpStatus saveMainClass(@Valid @RequestBody MainClassification mainClassDTO) {
+	public HttpStatus saveMainClass(@Valid @RequestBody MainClassificationDTO mainClassDTO) {
 		mainClassDTOMapper.saveMainClass(mainClassDTO);
 				
 		return HttpStatus.CREATED;
 	}
 
 	@GetMapping("/GetAllMainClassification")
-	public List<MainClassification> getAllMainClass() {
-		return mainClassService.getAllMainClass();
+	public List<MainClassificationDTO> getAllMainClass() {
+		return mainClassDTOMapper.getAllMainClass();
 	}
-
+	
 	@GetMapping("/getMainClassificationById/{mainClassId}")
 	public ResponseEntity<MainClassificationDTO> getMainClassificationById(@PathVariable("mainClassId") Long mainClassId) {
 		return new ResponseEntity<MainClassificationDTO>(mainClassDTOMapper.getMainClass(mainClassId),

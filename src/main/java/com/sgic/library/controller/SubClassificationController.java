@@ -21,24 +21,26 @@ import com.sgic.library.service.SubClassificationService;
 @RestController
 public class SubClassificationController {
 	@Autowired
-	SubClassificationService subClassService;
+	SubClassificationDTOMapper subClassMapper;
 	
 	@PostMapping("/SaveSubClassification")
 	public HttpStatus saveMainClass(@Valid @RequestBody SubClassificationDTO subClassDTO) {
-		SubClassification subClass =  SubClassificationDTOMapper.SubClassDTOToSubClass(subClassDTO);
-		subClassService.saveSubClassification(subClass);
+//		SubClassification subClass =  SubClassificationDTOMapper.SubClassDTOToSubClass(subClassDTO);
+//		subClassService.saveSubClassification(subClass);
+		
+		subClassMapper.saveSubClass(subClassDTO);
 				
 		return HttpStatus.CREATED;
 	}
 	
 	@GetMapping("/GetAllSubClassification")
-	public List<SubClassification> getAllSubClass() {
-		return subClassService.getAllSubClass();
+	public List<SubClassificationDTO> getAllSubClass() {
+		return subClassMapper.getAllSubClass();
 	}
 	
 	@GetMapping("/GetSubClassificationById/{subClassId}")
-	public ResponseEntity<SubClassification> getSubClassificationBySubClassId(@PathVariable("subClassId") String subClassId) {
-		return new ResponseEntity<SubClassification>(subClassService.getSubClassificationBySubClassId(subClassId),
+	public ResponseEntity<SubClassificationDTO> getSubClassificationBySubClassId(@PathVariable("subClassId") String subClassId) {
+		return new ResponseEntity<SubClassificationDTO>(subClassMapper.getSubClassById(subClassId),
 				HttpStatus.OK);
 	}
 

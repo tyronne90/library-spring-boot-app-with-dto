@@ -1,11 +1,11 @@
-package com.sgic.library.dto;
+package com.sgic.library.entity;
 
-public class BookDTO {
+
+public class BookPost {
 	private String bookId;
 	private String bookName;
 	private String bookDescription;
-	private String subClassId;
-	
+	private SubClassification subClassId;
 	public String getBookId() {
 		return bookId;
 	}
@@ -24,11 +24,12 @@ public class BookDTO {
 	public void setBookDescription(String bookDescription) {
 		this.bookDescription = bookDescription;
 	}
-	public String getSubClassId() {
+	public SubClassification getSubClassId() {
 		return subClassId;
 	}
-	public void setSubClassId(String subClassId) {
+	public void setSubClassId(SubClassification subClassId) {
 		this.subClassId = subClassId;
 	}
-
+	
+	
 }

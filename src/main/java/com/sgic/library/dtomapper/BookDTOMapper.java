@@ -4,6 +4,8 @@ import java.lang.reflect.Type;
 import java.util.List;
 
 import org.modelmapper.ModelMapper;
+import org.modelmapper.PropertyMap;
+import org.modelmapper.TypeMap;
 import org.modelmapper.TypeToken;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -25,6 +27,13 @@ public class BookDTOMapper {
 		return bookDTO;
 	}
 	
+	PropertyMap <BookDTO, Book> BookMap = new PropertyMap <BookDTO, Book>() {
+		  protected void configure() {
+			  map().getSubClassification().setSubClassId(source.getSubClassId());
+		  }
+		};
+		
+
 //	public void saveBook(BookDTO bookDTO) {
 //		
 //		// --- Explicit Mapping Entity to DTO
@@ -35,7 +44,7 @@ public class BookDTOMapper {
 //			}
 //		});
 	
-//		// --Explicit Mapping DTO to Entity	
+//		// --- Explicit Mapping DTO to Entity	
 //	PropertyMap <BookDTO, Book> orderMap = new PropertyMap <BookDTO, Book>() {
 //		  protected void configure() {
 //		    map().getMainClassification().setMainClassId(source.getMainClassId());
@@ -46,15 +55,19 @@ public class BookDTOMapper {
 //		bookServiceImpl.save(book);
 //	}
 
-	public Book saveBook(BookDTO bookDTO) {
-		Book book = modelMapper.map(bookDTO, Book.class);
-		return bookServiceImpl.save(book);
-	}
-	
 	public BookDTO getBook(String bookId) {
 		return EntityToDTO(bookServiceImpl.getBookById(bookId));
 	}
 	
+	public Book saveBook(BookDTO bookDTO) {
+		TypeMap<BookDTO, Book> typeMap = modelMapper.getTypeMap(BookDTO.class, Book.class);
+		if (typeMap == null) {
+			modelMapper.addMappings(BookMap);
+		}
+		Book book= modelMapper.map(bookDTO, Book.class);
+		return bookServiceImpl.save(book);
+	}
+
 	public List<BookDTO> getAllBook(){
 		List<Book> book = bookServiceImpl.getAllBooks();
 		Type listType = new TypeToken<List<BookDTO>>() {}.getType();
@@ -68,6 +81,10 @@ public class BookDTOMapper {
 	}
 	
 	public Book updateBook(BookDTO bookDTO) {
+		TypeMap<BookDTO, Book> typeMap = modelMapper.getTypeMap(BookDTO.class, Book.class);
+		if (typeMap == null) {
+			modelMapper.addMappings(BookMap);
+		}
 		Book book = modelMapper.map(bookDTO, Book.class);
 		return bookServiceImpl.save(book);
 		

@@ -21,6 +21,10 @@ public class SubClassification implements Serializable {
 	private MainClassification mainClassification;
 
 	
+	public SubClassification() {
+		super();
+	}
+
 	public MainClassification getMainClassification() {
 		return mainClassification;
 	}

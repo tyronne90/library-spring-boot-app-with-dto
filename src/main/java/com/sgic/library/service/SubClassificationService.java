@@ -8,4 +8,7 @@ public interface SubClassificationService {
 	SubClassification getSubClassificationBySubClassId(String subClassId);
 	SubClassification save(SubClassification subClass);
 	List<SubClassification> getAllSubClass();
+	SubClassification deleteSubClassificationById(String subClassId);
+	void updateMainClassification(SubClassification subClass);
+
 }

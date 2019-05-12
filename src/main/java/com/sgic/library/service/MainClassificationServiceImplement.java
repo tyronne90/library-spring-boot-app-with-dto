@@ -10,7 +10,7 @@ import com.sgic.library.repository.MainClassificationRepository;
 
 @Service
 public class MainClassificationServiceImplement implements MainClassificationService {
-	
+
 	@Autowired
 	MainClassificationRepository mainClassificationRepository;
 
@@ -27,7 +27,7 @@ public class MainClassificationServiceImplement implements MainClassificationSer
 	@Override
 	public MainClassification getMainClassificationById(Long mainClassId) {
 		return mainClassificationRepository.findMainClassificationByMainClassId(mainClassId);
-}
+	}
 
 	@Override
 	public MainClassification deleteMainClassificationById(Long mainClassId) {
@@ -39,8 +39,8 @@ public class MainClassificationServiceImplement implements MainClassificationSer
 	public void updateMainClassification(MainClassification mainClass) {
 		Long mainClassId = mainClass.getMainClassId();
 		boolean isExist = mainClassificationRepository.findMainClassificationByMainClassId(mainClassId) != null;
-		if(isExist) {
+		if (isExist) {
 			mainClassificationRepository.save(mainClass);
-}		
+		}
 	}
 }

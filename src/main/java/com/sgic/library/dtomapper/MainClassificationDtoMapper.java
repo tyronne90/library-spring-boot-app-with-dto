@@ -1,5 +1,6 @@
 package com.sgic.library.dtomapper;
 
+import java.lang.reflect.Type;
 import java.util.List;
 import org.modelmapper.ModelMapper;
 import org.modelmapper.TypeToken;
@@ -11,7 +12,7 @@ import com.sgic.library.entity.MainClassification;
 import com.sgic.library.service.MainClassificationServiceImplement;
 
 @Service
-public class MainClassificationDtoMapper {
+public class MainClassificationDTOMapper {
 
 	@Autowired
 	private MainClassificationServiceImplement mainClassServiceImpl;
@@ -57,7 +58,7 @@ public class MainClassificationDtoMapper {
 	
 	public List<MainClassificationDTO> getAllMainClass(){
 		List<MainClassification> mainClass = mainClassServiceImpl.getAllMainClass();
-		java.lang.reflect.Type listType = new TypeToken<List<MainClassificationDTO>>() {}.getType();
+		Type listType = new TypeToken<List<MainClassificationDTO>>() {}.getType();
 		List<MainClassificationDTO> returnValue = new ModelMapper().map(mainClass, listType);
 		return returnValue;
 	}

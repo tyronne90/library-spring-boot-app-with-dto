@@ -61,5 +61,14 @@ public class SubClassificationDTOMapper {
 		return subClassServiceImpl.save(subClass);
 	}
 	
+	public SubClassificationDTO deleteSubClassification(String subClassId) {
+		subClassServiceImpl.deleteSubClassificationById(subClassId);
+		return null;
+	}
+	
+	public void updateSubClassification(SubClassificationDTO subClassDTO) {
+		SubClassification subClass = modelMapper.map(subClassDTO, SubClassification.class);
+		EntityToDTO(subClassServiceImpl.save(subClass));
+	}
 	
 }

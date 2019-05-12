@@ -19,10 +19,10 @@ public class Book implements Serializable {
 	private String bookDescription;
 	@OneToOne
 	@JoinColumn(name = "mainClassId", nullable = false)
-	private MainClassification mainClassId;
+	MainClassification mainClassification;
 	@OneToOne
 	@JoinColumn(name = "subClassId", nullable = false)
-	private SubClassification subClassId;
+	SubClassification subClassification;
 	
 	public String getBookId() {
 		return bookId;
@@ -42,16 +42,17 @@ public class Book implements Serializable {
 	public void setBookDescription(String bookDescription) {
 		this.bookDescription = bookDescription;
 	}
-	public MainClassification getMainClassId() {
-		return mainClassId;
+	public MainClassification getMainClassification() {
+		return mainClassification;
 	}
-	public void setMainClassId(MainClassification mainClassId) {
-		this.mainClassId = mainClassId;
+	public void setMainClassification(MainClassification mainClassification) {
+		this.mainClassification = mainClassification;
 	}
-	public SubClassification getSubClassId() {
-		return subClassId;
+	public SubClassification getSubClassification() {
+		return subClassification;
 	}
-	public void setSubClassId(SubClassification subClassId) {
-		this.subClassId = subClassId;
+	public void setSubClassification(SubClassification subClassification) {
+		this.subClassification = subClassification;
 	}
+	
 }

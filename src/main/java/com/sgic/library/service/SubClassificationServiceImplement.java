@@ -28,6 +28,21 @@ public class SubClassificationServiceImplement implements SubClassificationServi
 	public List<SubClassification> getAllSubClass() {
 		return subClassificationRepository.findAll();
 	}
+
+	@Override
+	public SubClassification deleteSubClassificationById(String subClassId) {
+		subClassificationRepository.deleteById(subClassId);
+		return null;
+	}
+
+	@Override
+	public void updateMainClassification(SubClassification subClass) {
+		String subClassId = subClass.getSubClassId();
+		boolean isExist = subClassificationRepository.findSubClassificationBySubClassId(subClassId) != null;
+		if (isExist) {
+			subClassificationRepository.save(subClass);
+		}
+	}
 	
 	
 

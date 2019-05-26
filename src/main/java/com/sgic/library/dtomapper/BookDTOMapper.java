@@ -1,6 +1,7 @@
 package com.sgic.library.dtomapper;
 
 import java.lang.reflect.Type;
+import java.util.ArrayList;
 import java.util.List;
 
 import org.modelmapper.ModelMapper;
@@ -9,6 +10,7 @@ import org.modelmapper.TypeMap;
 import org.modelmapper.TypeToken;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.ui.Model;
 
 import com.sgic.library.dto.BookDTO;
 import com.sgic.library.entity.Book;
@@ -72,6 +74,20 @@ public class BookDTOMapper {
 		List<Book> book = bookServiceImpl.getAllBooks();
 		Type listType = new TypeToken<List<BookDTO>>() {}.getType();
 		List<BookDTO> returnValue = new ModelMapper().map(book, listType);
+		
+// --------------
+		
+		List<BookDTO> models = new ModelMapper().map(book, listType);
+
+        for(int i = 0; i < models.size(); i++) {
+            System.out.println(models.get(i).getBookId());
+        }
+		
+// --------------
+
+		
+		
+		
 		return returnValue;
 	}
 	

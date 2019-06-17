@@ -4,6 +4,8 @@ import java.util.List;
 
 import javax.validation.Valid;
 
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -22,15 +24,18 @@ import com.sgic.library.dtomapper.MainClassificationDTOMapper;
 public class MainClassificationController {
 	@Autowired
 	MainClassificationDTOMapper mainClassDTOMapper;
+	private static Logger logger = LogManager.getLogger(MainClassificationDTOMapper.class);
 
 	@PostMapping("/SaveMainClassification")
 	public HttpStatus saveMainClass(@Valid @RequestBody MainClassificationDTO mainClassDTO) {
 		mainClassDTOMapper.saveMainClass(mainClassDTO);
+		logger.info("Successfully Created", mainClassDTO.getMainClassId());
 		return HttpStatus.CREATED;
 	}
 
 	@GetMapping("/GetAllMainClassification")
 	public List<MainClassificationDTO> getAllMainClass() {
+		logger.info("Successfully retrieved");
 		return mainClassDTOMapper.getAllMainClass();
 	}
 

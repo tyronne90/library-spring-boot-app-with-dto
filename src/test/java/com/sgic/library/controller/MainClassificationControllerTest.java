@@ -24,12 +24,8 @@ public class MainClassificationControllerTest extends MainClassificationTest{
 	  
 	  @Before
 	  public void setup() {
-	  String newUser = "INSERT INTO librarysystem.mainclassification (main_class_name) VALUES ('ABC')";
-//	  String careerDevelopmentPlan = "INSERT INTO employee.careerdevelopmentplan (id, name) VALUES (2, 'careerDevelopmentOne')";
-//	   String userCareerDevelopmentPlanCompany = "INSERT INTO employee.user_career_development_plan_company (id, cdp_Id,user_Id,status) VALUES (2,2,2,'Planning' )";
-	  jdbcTemplate.execute(newUser);
-//	   jdbcTemplate.execute(careerDevelopmentPlan);
-//	    jdbcTemplate.execute(userCareerDevelopmentPlanCompany);
+	  String createMainClass = "INSERT INTO librarysystem.mainclassification (main_class_name) VALUES ('ABC')";
+	  jdbcTemplate.execute(createMainClass);
 	  }
 	  
 	  
@@ -43,16 +39,14 @@ public class MainClassificationControllerTest extends MainClassificationTest{
 	    
 	  
 	  @After
-	  public void tearDown() {
-
-	  }
+	  public void tearDown() {}
 	  
 	  public final class MainClassificationConstant{
 	    
-	    public MainClassificationConstant() {
-	    }
+	    public MainClassificationConstant() {}
 	    
-	    private static final String MAINCLASSIFICATION_RESPONSE =
+	    @SuppressWarnings("unused")
+		private static final String MAINCLASSIFICATION_RESPONSE =
 	    		"[ { \\\"mainClassId\\\": 2, \\\"mainClassName\\\": \\\"Maths\\\" }, { \\\"mainClassId\\\": 36, \\\"mainClassName\\\": \\\"ABCD\\\" } ]";
 	  }
 }

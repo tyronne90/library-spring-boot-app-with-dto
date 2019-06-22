@@ -45,7 +45,7 @@ public class MainClassificationController {
 		return new ResponseEntity<MainClassificationDTO>(mainClassDTOMapper.getMainClass(mainClassId), HttpStatus.OK);
 	}
 
-	@PutMapping("UpdateMainClassification")
+	@PutMapping("/UpdateMainClassification")
 	public ResponseEntity<MainClassificationDTO> updateBook(@Valid @RequestBody MainClassificationDTO mainClassDTO) {
 		mainClassDTOMapper.updateMainClassification(mainClassDTO);
 		return new ResponseEntity<MainClassificationDTO>(mainClassDTO, HttpStatus.ACCEPTED);

@@ -22,6 +22,15 @@ public class MainClassification implements Serializable {
 		super();
 	}
 	
+	
+	public MainClassification(Long mainClassId, String mainClassName) {
+		super();
+		this.mainClassId = mainClassId;
+		this.mainClassName = mainClassName;
+	}
+
+
+
 	public MainClassification(String mainClassName) {
 		super();
 		this.mainClassName = mainClassName;

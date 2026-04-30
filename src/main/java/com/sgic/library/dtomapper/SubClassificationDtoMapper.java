@@ -12,7 +12,7 @@ import com.sgic.library.entity.SubClassification;
 import com.sgic.library.service.SubClassificationServiceImplement;
 
 @Service
-public class SubClassificationDTOMapper {
+public class SubClassificationDtoMapper {
 	
 	@Autowired
 	SubClassificationServiceImplement subClassServiceImpl;

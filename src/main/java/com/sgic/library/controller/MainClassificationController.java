@@ -18,13 +18,13 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.sgic.library.dto.MainClassificationDTO;
-import com.sgic.library.dtomapper.MainClassificationDTOMapper;
+import com.sgic.library.dtomapper.MainClassificationDtoMapper;
 
 @RestController
 public class MainClassificationController {
 	@Autowired
-	MainClassificationDTOMapper mainClassDTOMapper;
-	private static Logger logger = LogManager.getLogger(MainClassificationDTOMapper.class);
+	MainClassificationDtoMapper mainClassDTOMapper;
+	private static Logger logger = LogManager.getLogger(MainClassificationDtoMapper.class);
 
 	@PostMapping("/SaveMainClassification")
 	public HttpStatus saveMainClass(@Valid @RequestBody MainClassificationDTO mainClassDTO) {

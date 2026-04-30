@@ -16,12 +16,12 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.sgic.library.dto.SubClassificationDTO;
-import com.sgic.library.dtomapper.SubClassificationDTOMapper;
+import com.sgic.library.dtomapper.SubClassificationDtoMapper;
 
 @RestController
 public class SubClassificationController {
 	@Autowired
-	SubClassificationDTOMapper subClassMapper;
+	SubClassificationDtoMapper subClassMapper;
 	
 	@PostMapping("/SaveSubClassification")
 	public HttpStatus saveMainClass(@Valid @RequestBody SubClassificationDTO subClassDTO) {

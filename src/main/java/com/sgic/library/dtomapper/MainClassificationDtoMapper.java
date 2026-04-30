@@ -12,7 +12,7 @@ import com.sgic.library.entity.MainClassification;
 import com.sgic.library.service.MainClassificationServiceImplement;
 
 @Service
-public class MainClassificationDTOMapper {
+public class MainClassificationDtoMapper {
 
 	@Autowired
 	private MainClassificationServiceImplement mainClassServiceImpl;
